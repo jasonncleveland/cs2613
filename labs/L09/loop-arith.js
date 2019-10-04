@@ -14,3 +14,6 @@ function mult(a, b) {
 
     return sum;
 }
+
+exports.plus = plus;
+exports.mult = mult;
