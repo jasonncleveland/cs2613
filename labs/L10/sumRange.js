@@ -1,10 +1,16 @@
-function range(start, end) {
+function range(start, end, step=1) {
     const array = [];
-    if (end < start) {
+    if (step === 0 || (end < start && step > 0) || (end > start && step < 0)) {
         return array;
     }
-    for (let i = start; i <= end; i++) {
-        array.push(i);
+    if (step > 0) {
+        for (let i = start; i <= end; i += step) {
+            array.push(i);
+        }
+    } else {
+        for (let i = start; i >= end; i += step) {
+            array.push(i);
+        }
     }
     return array;
 }

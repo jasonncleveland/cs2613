@@ -12,6 +12,14 @@ describe("range", function () {
     it("multiple", function () {
         expect(array.range(42, 50)).toEqual([42, 43, 44, 45, 46, 47, 48, 49, 50]);
     });
+
+    it("step 2", function () {
+        expect(array.range(1, 10, 2)).toEqual([1, 3, 5, 7, 9]);
+    });
+
+    it("step -1", function () {
+        expect(array.range(5, 2, -1)).toEqual([5, 4, 3, 2]);
+    });
 });
 
 describe("sum", function () {
