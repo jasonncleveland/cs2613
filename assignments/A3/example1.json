@@ -1,0 +1,92 @@
+[
+  [
+    [
+      {
+        "id": "20091117232137.GA7669@griffis1.net",
+        "match": false,
+        "excluded": false,
+        "filename": [
+          "/home/bremner/Maildir/unb/.list.notmuch/cur/1324645067.000017.mbox:2,"
+        ],
+        "timestamp": 1258500098,
+        "date_relative": "2009-11-17",
+        "tags": [
+          "unread"
+        ],
+        "headers": {
+          "Subject": "[notmuch] archive",
+          "From": "Aron Griffis <agriffis@n01se.net>",
+          "To": "notmuch <notmuch@notmuchmail.org>",
+          "Date": "Tue, 17 Nov 2009 18:21:38 -0500"
+        },
+        "body": [
+          {
+            "id": 1,
+            "content-type": "text/plain",
+            "content-disposition": "inline",
+            "content": "Just subscribed, I'd like to catch up on the previous postings,\nbut the archive link seems to be bogus?\n\nThanks,\nAron\n\n"
+          }
+        ]
+      },
+      [
+        [
+          {
+            "id": "yunzl6kd1w0.fsf@aiko.keithp.com",
+            "match": true,
+            "excluded": false,
+            "filename": [
+              "/home/bremner/Maildir/unb/.list.notmuch/cur/1324645067.000028.mbox:2,S"
+            ],
+            "timestamp": 1258509871,
+            "date_relative": "2009-11-17",
+            "tags": [],
+            "headers": {
+              "Subject": "Re: [notmuch] archive",
+              "From": "Keith Packard <keithp@keithp.com>",
+              "To": "Aron Griffis <agriffis@n01se.net>, notmuch <notmuch@notmuchmail.org>",
+              "Date": "Tue, 17 Nov 2009 18:04:31 -0800"
+            },
+            "body": [
+              {
+                "id": 1,
+                "content-type": "text/plain",
+                "content": "On Tue, 17 Nov 2009 18:21:38 -0500, Aron Griffis <agriffis@n01se.net> wrote:\n\n> Just subscribed, I'd like to catch up on the previous postings,\n> but the archive link seems to be bogus?\n\nYeah, the archive appears broken and will need to wait until Carl\narrives in Barcelona to get fixed.\n\n--\nkeith.packard@intel.com\n\n\n\n"
+              }
+            ]
+          },
+          [
+            [
+              {
+                "id": "87iqd8qgiz.fsf@yoom.home.cworth.org",
+                "match": false,
+                "excluded": false,
+                "filename": [
+                  "/home/bremner/Maildir/unb/.list.notmuch/cur/1324645067.000042.mbox:2,"
+                ],
+                "timestamp": 1258539732,
+                "date_relative": "2009-11-18",
+                "tags": [
+                  "unread"
+                ],
+                "headers": {
+                  "Subject": "Re: [notmuch] archive",
+                  "From": "Carl Worth <cworth@cworth.org>",
+                  "To": "Keith Packard <keithp@keithp.com>, Aron Griffis <agriffis@n01se.net>, notmuch <notmuch@notmuchmail.org>",
+                  "Date": "Wed, 18 Nov 2009 02:22:12 -0800"
+                },
+                "body": [
+                  {
+                    "id": 1,
+                    "content-type": "text/plain",
+                    "content": "On Tue, 17 Nov 2009 18:04:31 -0800, Keith Packard <keithp@keithp.com> wrote:\n> On Tue, 17 Nov 2009 18:21:38 -0500, Aron Griffis <agriffis@n01se.net> wrote:\n> \n> > Just subscribed, I'd like to catch up on the previous postings,\n> > but the archive link seems to be bogus?\n> \n> Yeah, the archive appears broken and will need to wait until Carl\n> arrives in Barcelona to get fixed.\n\nFixed it in transit in Frankfurt---with only moments to spare on my\nbattery and no outlets in sight.\n\nThanks for the report, Aron. And welcome to notmuch!\n\n-Carl (who wants to reply to a lot more mail, but will have to wait\n until later for that)\n\n"
+                  }
+                ]
+              },
+              []
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]

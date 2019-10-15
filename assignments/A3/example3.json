@@ -1,0 +1,186 @@
+[
+   [
+      [
+         {
+            "id" : "87boejw7ll.fsf@tamas.ihs.ac.at",
+            "body" : [
+               {
+                  "id" : 1,
+                  "content-type" : "text/plain",
+                  "content" : "Hi,\n\nI have a T430s with an ultrabay battery, which is discharged before the\nmain one.  I was hoping I could balance the discharge between batteries\n--- I found http://www.thinkwiki.org/wiki/Talk:Code/tp-bat-balance but\nit needs tp_smapi which is not supported on this machine (AFAIK).\n\nIs there a way to balance battery discharging on this model?  I would\nalso be happy if I could manually select which battery is discharged.\n\nBest,\n\nTamas\n-- \nThe linux-thinkpad mailing list home page is at:\nhttp://mailman.linux-thinkpad.org/mailman/listinfo/linux-thinkpad\n"
+               }
+            ],
+            "timestamp" : 1354019462,
+            "filename" : [
+               "/home/bremner/Maildir/unb/.list.linux-thinkpad/cur/1354019706.H536188P5506.tesseract.cs.unb.ca:2,S"
+            ],
+            "date_relative" : "2012-11-27",
+            "tags" : [],
+            "excluded" : false,
+            "match" : true,
+            "headers" : {
+               "Date" : "Tue, 27 Nov 2012 13:31:02 +0100",
+               "Reply-To" : "linux-thinkpad@linux-thinkpad.org",
+               "To" : "\"linux-thinkpad@linux-thinkpad.org\" <linux-thinkpad@linux-thinkpad.org>",
+               "Subject" : "[ltp] battery balancing on T430s?",
+               "From" : "Tamas Papp <tkpapp@gmail.com>"
+            }
+         },
+         [
+            [
+               {
+                  "excluded" : false,
+                  "match" : false,
+                  "headers" : {
+                     "Subject" : "Re: [ltp] battery balancing on T430s?",
+                     "From" : "Frank Baumeister <baumeisterf@web.de>",
+                     "Reply-To" : "linux-thinkpad@linux-thinkpad.org",
+                     "Date" : "Tue, 27 Nov 2012 14:31:03 +0100",
+                     "To" : "linux-thinkpad@linux-thinkpad.org"
+                  },
+                  "body" : [
+                     {
+                        "content" : "Perhaps there is a way with TLP.  Linrunner.de/en/tlp/tlp.html\n\n\n\nTamas Papp <tkpapp@gmail.com> schrieb:\n\n>Hi,\n>\n>I have a T430s with an ultrabay battery, which is discharged before the\n>main one.  I was hoping I could balance the discharge between batteries\n>--- I found http://www.thinkwiki.org/wiki/Talk:Code/tp-bat-balance but\n>it needs tp_smapi which is not supported on this machine (AFAIK).\n>\n>Is there a way to balance battery discharging on this model?  I would\n>also be happy if I could manually select which battery is discharged.\n>\n>Best,\n>\n>Tamas\n\n\n\n\n-- \nDiese Nachricht wurde von meinem Android-Mobiltelefon mit K-9 Mail gesendet.\n-- \nThe linux-thinkpad mailing list home page is at:\nhttp://mailman.linux-thinkpad.org/mailman/listinfo/linux-thinkpad\n",
+                        "content-type" : "text/plain",
+                        "id" : 1
+                     }
+                  ],
+                  "id" : "88b04c58-95b0-4633-aaf3-a611cf8c7176@email.android.com",
+                  "tags" : [
+                     "unread"
+                  ],
+                  "filename" : [
+                     "/home/bremner/Maildir/unb/.list.linux-thinkpad/cur/1354023304.H68786P5655.tesseract.cs.unb.ca:2,"
+                  ],
+                  "date_relative" : "2012-11-27",
+                  "timestamp" : 1354023063
+               },
+               [
+                  [
+                     {
+                        "body" : [
+                           {
+                              "content" : "Thanks -- I am already using TLP, but I don't think that it offers this\nfunctionality.\n\nOn Tue, Nov 27 2012, Frank Baumeister <baumeisterf@web.de> wrote:\n\n> Perhaps there is a way with TLP.  Linrunner.de/en/tlp/tlp.html\n>\n>\n>\n> Tamas Papp <tkpapp@gmail.com> schrieb:\n>\n>>Hi,\n>>\n>>I have a T430s with an ultrabay battery, which is discharged before the\n>>main one.  I was hoping I could balance the discharge between batteries\n>>--- I found http://www.thinkwiki.org/wiki/Talk:Code/tp-bat-balance but\n>>it needs tp_smapi which is not supported on this machine (AFAIK).\n>>\n>>Is there a way to balance battery discharging on this model?  I would\n>>also be happy if I could manually select which battery is discharged.\n>>\n>>Best,\n>>\n>>Tamas\n>\n>\n>\n>\n> -- \n> Diese Nachricht wurde von meinem Android-Mobiltelefon mit K-9 Mail gesendet.\n\n-- \nThe linux-thinkpad mailing list home page is at:\nhttp://mailman.linux-thinkpad.org/mailman/listinfo/linux-thinkpad\n",
+                              "content-type" : "text/plain",
+                              "id" : 1
+                           }
+                        ],
+                        "id" : "878v9nw4cy.fsf@tamas.ihs.ac.at",
+                        "tags" : [
+                           "unread"
+                        ],
+                        "timestamp" : 1354023661,
+                        "date_relative" : "2012-11-27",
+                        "filename" : [
+                           "/home/bremner/Maildir/unb/.list.linux-thinkpad/cur/1354023901.H934938P5672.tesseract.cs.unb.ca:2,"
+                        ],
+                        "excluded" : false,
+                        "match" : false,
+                        "headers" : {
+                           "Subject" : "Re: [ltp] battery balancing on T430s?",
+                           "From" : "Tamas Papp <tkpapp@gmail.com>",
+                           "Date" : "Tue, 27 Nov 2012 14:41:01 +0100",
+                           "Reply-To" : "linux-thinkpad@linux-thinkpad.org",
+                           "To" : "linux-thinkpad@linux-thinkpad.org"
+                        }
+                     },
+                     []
+                  ]
+               ]
+            ],
+            [
+               {
+                  "timestamp" : 1354522521,
+                  "date_relative" : "2012-12-03",
+                  "filename" : [
+                     "/home/bremner/Maildir/unb/.list.linux-thinkpad/cur/1354522806.H600217P26331.tesseract.cs.unb.ca:2,"
+                  ],
+                  "tags" : [
+                     "unread"
+                  ],
+                  "id" : "CAOLOJ0xO1PoxUdRZYJDoZUfFaTu5r1yiDtSXEEXD_8YhzEU+3A@mail.gmail.com",
+                  "body" : [
+                     {
+                        "content" : "you may take a look at this: http://savannah.nongnu.org/projects/battwd.\nIt can works with several batteries (the only bad is that, at the\nmoment, it's alpha code).\n\nOn 27 November 2012 13:31, Tamas Papp <tkpapp@gmail.com> wrote:\n> Hi,\n>\n> I have a T430s with an ultrabay battery, which is discharged before the\n> main one.  I was hoping I could balance the discharge between batteries\n> --- I found http://www.thinkwiki.org/wiki/Talk:Code/tp-bat-balance but\n> it needs tp_smapi which is not supported on this machine (AFAIK).\n>\n> Is there a way to balance battery discharging on this model?  I would\n> also be happy if I could manually select which battery is discharged.\n>\n> Best,\n>\n> Tamas\n> --\n> The linux-thinkpad mailing list home page is at:\n> http://mailman.linux-thinkpad.org/mailman/listinfo/linux-thinkpad\n-- \nThe linux-thinkpad mailing list home page is at:\nhttp://mailman.linux-thinkpad.org/mailman/listinfo/linux-thinkpad\n",
+                        "content-type" : "text/plain",
+                        "id" : 1
+                     }
+                  ],
+                  "headers" : {
+                     "From" : "alfon <alfon.gz@gmail.com>",
+                     "Subject" : "Re: [ltp] battery balancing on T430s?",
+                     "To" : "linux-thinkpad@linux-thinkpad.org",
+                     "Reply-To" : "linux-thinkpad@linux-thinkpad.org",
+                     "Date" : "Mon, 03 Dec 2012 09:15:21 +0100"
+                  },
+                  "match" : false,
+                  "excluded" : false
+               },
+               [
+                  [
+                     {
+                        "tags" : [
+                           "unread"
+                        ],
+                        "date_relative" : "2012-12-03",
+                        "filename" : [
+                           "/home/bremner/Maildir/unb/.list.linux-thinkpad/cur/1354539302.H582083P27170.tesseract.cs.unb.ca:2,"
+                        ],
+                        "timestamp" : 1354538957,
+                        "body" : [
+                           {
+                              "content" : "Thanks.  Does this support selecting which battery to discharge on the\nTP T430s?  How?  I can see that it can monitor the batteries, but for me\nthe problem is not monitoring but controlling the battery discharge.\n\nThe problem is that tp_smapi does not support this laptop yet, so there\nis no /sys/devices/platform/smapi/BAT0/force_discharge etc.\n\nOn Mon, Dec 03 2012, alfon <alfon.gz@gmail.com> wrote:\n\n> you may take a look at this: http://savannah.nongnu.org/projects/battwd.\n> It can works with several batteries (the only bad is that, at the\n> moment, it's alpha code).\n>\n> On 27 November 2012 13:31, Tamas Papp <tkpapp@gmail.com> wrote:\n>> Hi,\n>>\n>> I have a T430s with an ultrabay battery, which is discharged before the\n>> main one.  I was hoping I could balance the discharge between batteries\n>> --- I found http://www.thinkwiki.org/wiki/Talk:Code/tp-bat-balance but\n>> it needs tp_smapi which is not supported on this machine (AFAIK).\n>>\n>> Is there a way to balance battery discharging on this model?  I would\n>> also be happy if I could manually select which battery is discharged.\n>>\n>> Best,\n>>\n>> Tamas\n>> --\n>> The linux-thinkpad mailing list home page is at:\n>> http://mailman.linux-thinkpad.org/mailman/listinfo/linux-thinkpad\n\n-- \nThe linux-thinkpad mailing list home page is at:\nhttp://mailman.linux-thinkpad.org/mailman/listinfo/linux-thinkpad\n",
+                              "content-type" : "text/plain",
+                              "id" : 1
+                           }
+                        ],
+                        "id" : "87lidfwbaq.fsf@tamas.ihs.ac.at",
+                        "match" : false,
+                        "headers" : {
+                           "Date" : "Mon, 03 Dec 2012 13:49:17 +0100",
+                           "Reply-To" : "linux-thinkpad@linux-thinkpad.org",
+                           "To" : "linux-thinkpad@linux-thinkpad.org",
+                           "Subject" : "Re: [ltp] battery balancing on T430s?",
+                           "From" : "Tamas Papp <tkpapp@gmail.com>"
+                        },
+                        "excluded" : false
+                     },
+                     [
+                        [
+                           {
+                              "id" : "CAOLOJ0yKgyZf6w5+D1n8ogkgAD_chHpo29D122C7wSgTRzVs8w@mail.gmail.com",
+                              "body" : [
+                                 {
+                                    "id" : 1,
+                                    "content-type" : "text/plain",
+                                    "content" : "No, for now, only works if the battery is under /sys/device, /proc or\nanother filesystem... sorry.\n\nOn 3 December 2012 13:49, Tamas Papp <tkpapp@gmail.com> wrote:\n> Thanks.  Does this support selecting which battery to discharge on the\n> TP T430s?  How?  I can see that it can monitor the batteries, but for me\n> the problem is not monitoring but controlling the battery discharge.\n>\n> The problem is that tp_smapi does not support this laptop yet, so there\n> is no /sys/devices/platform/smapi/BAT0/force_discharge etc.\n>\n> On Mon, Dec 03 2012, alfon <alfon.gz@gmail.com> wrote:\n>\n>> you may take a look at this: http://savannah.nongnu.org/projects/battwd.\n>> It can works with several batteries (the only bad is that, at the\n>> moment, it's alpha code).\n>>\n>> On 27 November 2012 13:31, Tamas Papp <tkpapp@gmail.com> wrote:\n>>> Hi,\n>>>\n>>> I have a T430s with an ultrabay battery, which is discharged before the\n>>> main one.  I was hoping I could balance the discharge between batteries\n>>> --- I found http://www.thinkwiki.org/wiki/Talk:Code/tp-bat-balance but\n>>> it needs tp_smapi which is not supported on this machine (AFAIK).\n>>>\n>>> Is there a way to balance battery discharging on this model?  I would\n>>> also be happy if I could manually select which battery is discharged.\n>>>\n>>> Best,\n>>>\n>>> Tamas\n>>> --\n>>> The linux-thinkpad mailing list home page is at:\n>>> http://mailman.linux-thinkpad.org/mailman/listinfo/linux-thinkpad\n>\n> --\n> The linux-thinkpad mailing list home page is at:\n> http://mailman.linux-thinkpad.org/mailman/listinfo/linux-thinkpad\n-- \nThe linux-thinkpad mailing list home page is at:\nhttp://mailman.linux-thinkpad.org/mailman/listinfo/linux-thinkpad\n"
+                                 }
+                              ],
+                              "timestamp" : 1354542140,
+                              "date_relative" : "2012-12-03",
+                              "filename" : [
+                                 "/home/bremner/Maildir/unb/.list.linux-thinkpad/cur/1354542304.H658190P27485.tesseract.cs.unb.ca:2,"
+                              ],
+                              "tags" : [
+                                 "unread"
+                              ],
+                              "excluded" : false,
+                              "match" : false,
+                              "headers" : {
+                                 "Subject" : "Re: [ltp] battery balancing on T430s?",
+                                 "From" : "alfon <alfon.gz@gmail.com>",
+                                 "Date" : "Mon, 03 Dec 2012 14:42:20 +0100",
+                                 "Reply-To" : "linux-thinkpad@linux-thinkpad.org",
+                                 "To" : "linux-thinkpad@linux-thinkpad.org"
+                              }
+                           },
+                           []
+                        ]
+                     ]
+                  ]
+               ]
+            ]
+         ]
+      ]
+   ]
+]

@@ -1,0 +1,346 @@
+[
+  [
+    [
+      {
+        "id": "20101026131106.3791.46291.reportbug@i7",
+        "match": false,
+        "excluded": false,
+        "filename": [
+          "/home/bremner/Maildir/unb/.list.debian-devel/cur/1288099996.28935.pivot.cs.unb.ca:2,S"
+        ],
+        "timestamp": 1288098666,
+        "date_relative": "2010-10-26",
+        "tags": [],
+        "headers": {
+          "Subject": "Bug#601455: general: can't stop daemon using /etc/init.d/foo stop when disabled via /etc/default/foo",
+          "From": "Mathias Kub <git@makubi.at>",
+          "To": "Debian Bug Tracking System <submit@bugs.debian.org>",
+          "Reply-To": "Mathias Kub <git@makubi.at>, 601455@bugs.debian.org",
+          "Date": "Tue, 26 Oct 2010 15:11:06 +0200"
+        },
+        "body": [
+          {
+            "id": 1,
+            "content-type": "text/plain",
+            "content": "Package: general\nSeverity: minor\nTags: patch\n\nWhen I try to stop a daemon after I disabled it in /etc/default/foo, I get an error-message that I can not stop it, because it is disabled.\n\nShouldn't I be able to stop it even if I disabled it first?\n\nThis happens if you disabled a daemon but didn't restart after that.\n\nIn my case it's MPD, I even tried it with icecast2, but I think this applies to more than these packages.\n\n-----------\nuser@sys:~$ sudo /etc/init.d/mpd stop\nNot stopping MPD: disabled by /etc/default/mpd. failed!\n\nuser@sys:~$ sudo /etc/init.d/icecast2 stop\nicecast2 daemon disabled - read /etc/default/icecast2.\n-----------\n\nE.g. in /etc/init.d/icecast2 I changed\n- if [ \"$ENABLE\" != \"true\" ]; then\nto\n+ if [ \"$ENABLE\" != \"true\" ] && [ \"$1\" != \"stop\" ]; then\n\nBest regards,\nMathias Kub\n\n-- System Information:\nDebian Release: lenny\n\n\n\n-- \nTo UNSUBSCRIBE, email to debian-devel-REQUEST@lists.debian.org\nwith a subject of \"unsubscribe\". Trouble? Contact listmaster@lists.debian.org\nArchive: http://lists.debian.org/20101026131106.3791.46291.reportbug@i7\n\n\n"
+          }
+        ]
+      },
+      [
+        [
+          {
+            "id": "20111017041202.GA6506@elie.hsd1.il.comcast.net",
+            "match": false,
+            "excluded": false,
+            "filename": [
+              "/home/bremner/Maildir/unb/.list.debian-devel/cur/1318824935.H635656P9975.tesseract.cs.unb.ca:2,"
+            ],
+            "timestamp": 1318824722,
+            "date_relative": "2011-10-17",
+            "tags": [
+              "unread"
+            ],
+            "headers": {
+              "Subject": "Bug#601455: general: can't stop daemon using /etc/init.d/foo stop when disabled via /etc/default/foo",
+              "From": "Jonathan Nieder <jrnieder@gmail.com>",
+              "To": "Mathias Kub <git@makubi.at>",
+              "Cc": "601455@bugs.debian.org",
+              "Reply-To": "Jonathan Nieder <jrnieder@gmail.com>, 601455@bugs.debian.org",
+              "Date": "Sun, 16 Oct 2011 23:12:02 -0500"
+            },
+            "body": [
+              {
+                "id": 1,
+                "content-type": "text/plain",
+                "content-disposition": "inline",
+                "content": "tags 601455 - patch\nretitle 601455 multiple, annoyingly different ways to disable an init script\nquit\n\nHi Mathias,\n\nMathias Kub wrote:\n\n> When I try to stop a daemon after I disabled it in /etc/default/foo,\n> I get an error-message that I can not stop it, because it is\n> disabled.\n>\n> Shouldn't I be able to stop it even if I disabled it first?\n\nYes, I agree that this is a bug.  Nowadays the appropriate way\nto disable an init script is to remove the 'S' links without removing\nthe 'K' links, for example by running\n\n\tupdate-rc.d foo disable\n\nUnfortunately:\n\n 1. That is not as well known is it ought to be.  For example, section\n    4.6.3. \"Restricting access to some server services\"[1] of\n    debian-reference could be clarified to emphasize this method.\n\n 2. Many packages seem to provide ENABLE/DISABLE variables in\n    /etc/default/foo, providing a confusing red herring for this\n    task --- a second method which does not work nearly as well,\n    as you pointed out.\n\n 3. The tempting \"update-rc.d foo remove\" (which removes the 'K'\n    links, too) might _seem_ to work, except that the next time the\n    foo package is upgraded, the service is back again.\n\nOne possible way to move forward would be to write a patch to the\ndebian reference and any other pertinent documentation to address (1)\nand (3) and (once consensus that this is a good idea is reached) to\nfile bugs requesting removal of the ENABLE/DISABLE vars to address (2),\nblocking this bug by them.  When the last such variable is eliminated\nfrom the default conffiles in /etc/default, this bug could be closed.\n\nA complicating factor is that the sysadmin may already have customized\nsome ENABLE/DISABLE settings and a move like this should not override\ntheir settings.  So perhaps packages should stop advertising the\nENABLE/DISABLE vars in /etc/default/<package>, but continue to respect\nthem when set.\n\nSane?\n\nThanks,\nJonathan\n\n[1] http://www.debian.org/doc/manuals/debian-reference/ch04.en.html#_restricting_access_to_some_server_services\n\n\n\n-- \nTo UNSUBSCRIBE, email to debian-devel-REQUEST@lists.debian.org\nwith a subject of \"unsubscribe\". Trouble? Contact listmaster@lists.debian.org\nArchive: http://lists.debian.org/20111017041202.GA6506@elie.hsd1.il.comcast.net\n\n"
+              }
+            ]
+          },
+          [
+            [
+              {
+                "id": "handler.s.C.131882474613866.transcript@bugs.debian.org",
+                "match": true,
+                "excluded": false,
+                "filename": [
+                  "/home/bremner/Maildir/unb/.list.debian-devel/cur/1318824952.H424691P9980.tesseract.cs.unb.ca:2,S"
+                ],
+                "timestamp": 1318824912,
+                "date_relative": "2011-10-17",
+                "tags": [],
+                "headers": {
+                  "Subject": "Processed: Re: general: can't stop daemon using /etc/init.d/foo stop when disabled via /etc/default/foo",
+                  "From": "owner@bugs.debian.org (Debian Bug Tracking System)",
+                  "To": "Jonathan Nieder <jrnieder@gmail.com>",
+                  "Cc": "general for {601455} <debian-devel@lists.debian.org>",
+                  "Date": "Mon, 17 Oct 2011 04:15:12 +0000"
+                },
+                "body": [
+                  {
+                    "id": 1,
+                    "content-type": "text/plain",
+                    "content": "Processing commands for control@bugs.debian.org:\n\n> tags 601455 - patch\nBug #601455 [general] general: can't stop daemon using /etc/init.d/foo stop when disabled via /etc/default/foo\nRemoved tag(s) patch.\n> retitle 601455 multiple, annoyingly different ways to disable an init script\nBug #601455 [general] general: can't stop daemon using /etc/init.d/foo stop when disabled via /etc/default/foo\nChanged Bug title to 'multiple, annoyingly different ways to disable an init script' from 'general: can't stop daemon using /etc/init.d/foo stop when disabled via /etc/default/foo'\n> quit\nStopping processing here.\n\nPlease contact me if you need assistance.\n-- \n601455: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=601455\nDebian Bug Tracking System\nContact owner@bugs.debian.org with problems\n\n\n-- \nTo UNSUBSCRIBE, email to debian-devel-REQUEST@lists.debian.org\nwith a subject of \"unsubscribe\". Trouble? Contact listmaster@lists.debian.org\nArchive: http://lists.debian.org/handler.s.C.131882474613866.transcript@bugs.debian.org\n\n"
+                  }
+                ]
+              },
+              []
+            ]
+          ]
+        ],
+        [
+          {
+            "id": "87efrfvc5p.fsf@iris.silentflame.com",
+            "match": false,
+            "excluded": false,
+            "filename": [
+              "/home/bremner/Maildir/tethera/cur/1504989708.H253980P5302.fethera.tethera.net:2,S"
+            ],
+            "timestamp": 1504989618,
+            "date_relative": "September 09",
+            "tags": [
+              "signed"
+            ],
+            "headers": {
+              "Subject": "Bug#601455: Steps towards a patch to document disabling a daemon upon installation",
+              "From": "Sean Whitton <spwhitton@spwhitton.name>",
+              "To": "601455@bugs.debian.org",
+              "Cc": "debian-devel@lists.debian.org",
+              "Reply-To": "Sean Whitton <spwhitton@spwhitton.name>, 601455@bugs.debian.org",
+              "Date": "Sat, 09 Sep 2017 13:40:18 -0700"
+            },
+            "body": [
+              {
+                "id": 1,
+                "content-type": "multipart/signed",
+                "content": [
+                  {
+                    "id": 2,
+                    "content-type": "text/plain",
+                    "content": "Hello,\n\nThis is what I have so far; it is certainly inadequate.  CCing -devel\nfor help answering my technical questions about this patch.\n\n> @@ -537,6 +537,21 @@ and in your ``postrm``\n>          update-rc.d package remove\n>      fi\n>  \n> +The default behaviour is to enable autostarting your package's daemon.\n> +If the daemon should not be autostarted unless the local administrator\n> +has explicitly requested this, use instead add to your ``postinst``\n> +script\n> +\n> +::\n> +\n> +    update-rc.d package defaults\n> +    update-rc.d package disable\n> +\n> +An older practice, which should not be used, was to include a line\n> +like ``DISABLED=yes`` in the package's ``/etc/default`` file.  The\n> +package's init script would not start the service until the local\n> +system administrator changed this to ``DISABLED=no``, or similar.\n> +\n>  Note that if your package changes runlevels or priority, you may have to\n>  remove and recreate the links, since otherwise the old links may\n>  persist. Refer to the documentation of ``update-rc.d``.\n\n1. Is the 'should not' for the /etc/default practice too strong?  I\n   don't know an efficient way to find out how many packages this would\n   make buggy.  But given that we have very strong reasons against the\n   old practice, we might want to use a 'should not' regardless.\n\n2. Do we need to include any text saying *why* the /etc/default practice\n   is a bad idea?  I couldn't come up with a succinct way to state it.\n   In general, I think we can err on the side of not including the text,\n   since we have policy bugs that document the reasons.\n\n3. The maintscript snippet I have added is not right because it will\n   disable the daemon every time the package is updated.  Unfortunately,\n   the postinst doesn't know whether this is a new installation, or an\n   upgrade.\n\n   An alternative is to require the package maintainer to set the\n   correct LSB headers and systemd unit file configuration values such\n   that the daemon is not autostarted (in the former case, setting the\n   daemon not to be started at any runlevel).  But I think this would\n   prevent the local system administrator from enabling the service with\n   a simple `update-rc.d package enable`, which is the whole point of\n   all this.\n\n   I looked at dh_installinit(8) and update-rc.d(8) and I couldn't get\n   them to generate a postinst that does what I want.  It seems you're\n   expected to use all three of these:\n\n       dh_systemd_enable --no-enable\n       dh_systemd_start --no-start\n       dh_installinit --no-start\n\n   but then after a reboot, a sysvinit system will start the daemon,\n   AFAICT.\n\n-- \nSean Whitton\n"
+                  },
+                  {
+                    "id": 3,
+                    "content-type": "application/pgp-signature",
+                    "filename": "signature.asc",
+                    "content-length": 832
+                  }
+                ]
+              }
+            ]
+          },
+          []
+        ],
+        [
+          {
+            "id": "20170910074844.ncsj7ihhdmqsxob7@bongo.bofh.it",
+            "match": false,
+            "excluded": false,
+            "filename": [
+              "/home/bremner/Maildir/tethera/cur/1505053420.H579482P8345.fethera.tethera.net:2,S"
+            ],
+            "timestamp": 1505029724,
+            "date_relative": "September 10",
+            "tags": [
+              "signed"
+            ],
+            "headers": {
+              "Subject": "Bug#601455: Steps towards a patch to document disabling a daemon upon installation",
+              "From": "md@Linux.IT (Marco d'Itri)",
+              "To": "debian-policy@lists.debian.org",
+              "Cc": "601455@bugs.debian.org, debian-devel@lists.debian.org",
+              "Reply-To": "Marco d'Itri <md@Linux.IT>, 601455@bugs.debian.org",
+              "Date": "Sun, 10 Sep 2017 09:48:44 +0200"
+            },
+            "body": [
+              {
+                "id": 1,
+                "content-type": "multipart/signed",
+                "content-disposition": "inline",
+                "content": [
+                  {
+                    "id": 2,
+                    "content-type": "text/plain",
+                    "content-disposition": "inline",
+                    "content": "On Sep 09, Sean Whitton <spwhitton@spwhitton.name> wrote:\n\n> 1. Is the 'should not' for the /etc/default practice too strong?  I\nNo, because it cannot be supported in a sane way by systemd units.\nIt should even be \"must not\".\n\n-- \nciao,\nMarco\n"
+                  },
+                  {
+                    "id": 3,
+                    "content-type": "application/pgp-signature",
+                    "filename": "signature.asc",
+                    "content-length": 659
+                  }
+                ]
+              }
+            ]
+          },
+          []
+        ],
+        [
+          {
+            "id": "20170910111619.ak3co2pxx7w7ybwq@fatal.se",
+            "match": false,
+            "excluded": false,
+            "filename": [
+              "/home/bremner/Maildir/tethera/cur/1505042623.H930419P7859.fethera.tethera.net:2,S"
+            ],
+            "timestamp": 1505042179,
+            "date_relative": "September 10",
+            "tags": [],
+            "headers": {
+              "Subject": "Bug#601455: Steps towards a patch to document disabling a daemon upon installation",
+              "From": "Andreas Henriksson <andreas@fatal.se>",
+              "To": "Sean Whitton <spwhitton@spwhitton.name>",
+              "Cc": "601455@bugs.debian.org, debian-devel@lists.debian.org",
+              "Reply-To": "Andreas Henriksson <andreas@fatal.se>, 601455@bugs.debian.org",
+              "Date": "Sun, 10 Sep 2017 13:16:19 +0200"
+            },
+            "body": [
+              {
+                "id": 1,
+                "content-type": "text/plain",
+                "content-disposition": "inline",
+                "content": "Hello Sean Whitton,\n\nThanks for your work on this. Hopefully you'll find something in my\ncomments inlined below of any use...\n\nOn Sat, Sep 09, 2017 at 01:40:18PM -0700, Sean Whitton wrote:\n> Hello,\n> \n> This is what I have so far; it is certainly inadequate.  CCing -devel\n> for help answering my technical questions about this patch.\n> \n> > @@ -537,6 +537,21 @@ and in your ``postrm``\n> >          update-rc.d package remove\n> >      fi\n> >  \n> > +The default behaviour is to enable autostarting your package's daemon.\n> > +If the daemon should not be autostarted unless the local administrator\n> > +has explicitly requested this, use instead add to your ``postinst``\n> > +script\n> > +\n> > +::\n> > +\n> > +    update-rc.d package defaults\n> > +    update-rc.d package disable\n\nI can't help myself but repeat that I'd prefer seeing more passive\nwording eg. instead of \"instead add to your postinst\" use something\nlike \"the postinst should contain\" + a footnote about this normally\nbeing added by dh_...\nManually written maintainer scripts should be avoided and I've seen\npeople being \"fooled\" by taking policy literally before. (Maybe this\ndeserves a section of its own?)\n\n> > +\n> > +An older practice, which should not be used, was to include a line\n> > +like ``DISABLED=yes`` in the package's ``/etc/default`` file.  The\n> > +package's init script would not start the service until the local\n> > +system administrator changed this to ``DISABLED=no``, or similar.\n> > +\n> >  Note that if your package changes runlevels or priority, you may have to\n> >  remove and recreate the links, since otherwise the old links may\n> >  persist. Refer to the documentation of ``update-rc.d``.\n> \n> 1. Is the 'should not' for the /etc/default practice too strong?\n\nNot in my opinion, no.\n\n>    I don't know an efficient way to find out how many packages this\n>    would make buggy.  But given that we have very strong reasons\n>    against the old practice, we might want to use a 'should not'\n>    regardless.\n\nAny maintainer being hit by policy extremists have two options:\n\n1. Take the opportunity to fix the package to follow best pracises.\n2. Postpone by saying \"should not\" is not \"must not\" (and lower severity),\n   plus \"patches welcome\" ofcourse.\n\nI think that's good enough.\n\n> \n> 2. Do we need to include any text saying *why* the /etc/default practice\n>    is a bad idea?  I couldn't come up with a succinct way to state it.\n>    In general, I think we can err on the side of not including the text,\n>    since we have policy bugs that document the reasons.\n\nI don't think elaborating on all the ways something can be done\nincorrectly is nessessary. Should not be too hard for anyone interested\nin the reason to find out atleast one reason either by thinking it\nthrough by themselves or by googling for past discussions.\n\nIf anything I'd rather see helpful suggestions (in footnotes?) on how\na proper cleanup should be done. (Convert admin changes on upgrades,\nuse debian/*.maintscript to rm_conffile)\n\n> \n> 3. The maintscript snippet I have added is not right because it will\n>    disable the daemon every time the package is updated.  Unfortunately,\n>    the postinst doesn't know whether this is a new installation, or an\n>    upgrade.\n> \n>    An alternative is to require the package maintainer to set the\n>    correct LSB headers and systemd unit file configuration values such\n>    that the daemon is not autostarted (in the former case, setting the\n>    daemon not to be started at any runlevel).  But I think this would\n>    prevent the local system administrator from enabling the service with\n>    a simple `update-rc.d package enable`, which is the whole point of\n>    all this.\n> \n>    I looked at dh_installinit(8) and update-rc.d(8) and I couldn't get\n>    them to generate a postinst that does what I want.  It seems you're\n>    expected to use all three of these:\n> \n>        dh_systemd_enable --no-enable\n>        dh_systemd_start --no-start\n>        dh_installinit --no-start\n> \n>    but then after a reboot, a sysvinit system will start the daemon,\n>    AFAICT.\n\nhttps://bugs.debian.org/cgi-bin/bugreport.cgi?bug=709384\n\nRegards,\nAndreas Henriksson\n\n"
+              }
+            ]
+          },
+          []
+        ],
+        [
+          {
+            "id": "22966.37496.665485.820932@chiark.greenend.org.uk",
+            "match": false,
+            "excluded": false,
+            "filename": [
+              "/home/bremner/Maildir/tethera/cur/1505137301.H848769P17164.fethera.tethera.net:2,S"
+            ],
+            "timestamp": 1505137272,
+            "date_relative": "September 11",
+            "tags": [],
+            "headers": {
+              "Subject": "Bug#601455: Steps towards a patch to document disabling a daemon upon installation",
+              "From": "Ian Jackson <ijackson@chiark.greenend.org.uk>",
+              "To": "Sean Whitton <spwhitton@spwhitton.name>",
+              "Cc": "601455@bugs.debian.org, debian-devel@lists.debian.org",
+              "Reply-To": "Ian Jackson <ijackson@chiark.greenend.org.uk>, 601455@bugs.debian.org",
+              "Date": "Mon, 11 Sep 2017 14:41:12 +0100"
+            },
+            "body": [
+              {
+                "id": 1,
+                "content-type": "text/plain",
+                "content": "Sean Whitton writes (\"Steps towards a patch to document disabling a daemon upon installation\"):\n...\n> [draft policy text]\n...\n> > +The default behaviour is to enable autostarting your package's daemon.\n> > +If the daemon should not be autostarted unless the local administrator\n> > +has explicitly requested this, use instead add to your ``postinst``\n> > +script\n> > +\n> > +::\n> > +\n> > +    update-rc.d package defaults\n> > +    update-rc.d package disable\n\nThis has a bug: after the first rune, but before this second, starting\nthe daemon is enabled.  (This is a regression compared to the previous\napproach.)\n\nTo make this work correctly, I think we need a new update-rc.d\nmechanism which provides, in one go, the equivalent of\n  update-rc.d DAEMON defaults && update-rc.d DAEMON disable\n\nSomething like\n  update-rc.d DAEMON add-disabled\nmaybe.\n\n> > +An older practice, which should not be used, was to include a line\n> > +like ``DISABLED=yes`` in the package's ``/etc/default`` file.  The\n> > +package's init script would not start the service until the local\n> > +system administrator changed this to ``DISABLED=no``, or similar.\n...\n> 1. Is the 'should not' for the /etc/default practice too strong?  I\n>    don't know an efficient way to find out how many packages this would\n>    make buggy.  But given that we have very strong reasons against the\n>    old practice, we might want to use a 'should not' regardless.\n\nOn sysvinit systems, using update-rc.d disable/defaults are rather\nmore awkward:\n\n * Enabling and disabling cannot, in practice, be conveniently made\n   without using the update-rc.d tool.\n\n * Enabling and disabling generates a tremendous amount of noise in\n   /etc (especially visible when using etckeeper).\n\n> 2. Do we need to include any text saying *why* the /etc/default practice\n>    is a bad idea?  I couldn't come up with a succinct way to state it.\n>    In general, I think we can err on the side of not including the text,\n>    since we have policy bugs that document the reasons.\n\nHow about this text:\n\n  Setting a value in /etc/default/PACKAGE is nowadays troublesome\n  because supporting that pattern is very hard due to inflexibility in\n  systemd, which is usually the default init system.\n\nThis also makes it clear that this pattern is perfectly fine if for\nany reason the package does not support systemd.\n\n> 3. The maintscript snippet I have added is not right because it will\n>    disable the daemon every time the package is updated.  Unfortunately,\n>    the postinst doesn't know whether this is a new installation, or an\n>    upgrade.\n\nThis should also be fixed with a new update-rc.d rune.\n\n>    I looked at dh_installinit(8) and update-rc.d(8) and I couldn't get\n>    them to generate a postinst that does what I want.  It seems you're\n>    expected to use all three of these:\n> \n>        dh_systemd_enable --no-enable\n>        dh_systemd_start --no-start\n>        dh_installinit --no-start\n> \n>    but then after a reboot, a sysvinit system will start the daemon,\n>    AFAICT.\n\nI can't speak to the behaviour of systemd, but I think the\n\n  update-rc.d add-disabled\n\noperation I propose would, for sysvinit systems, do the follow:\n\n1. Are there already rc*.d links for DAEMON ?  If so, do nothing.\n\n2. If not, create them in the way that  defaults && disable\n  would have done.\n\nIan.\n\n"
+              }
+            ]
+          },
+          []
+        ],
+        [
+          {
+            "id": "87poaupkdc.fsf@iris.silentflame.com",
+            "match": false,
+            "excluded": false,
+            "filename": [
+              "/home/bremner/Maildir/tethera/cur/1505324860.H792966P2543.fethera.tethera.net:2,S"
+            ],
+            "timestamp": 1505324447,
+            "date_relative": "September 13",
+            "tags": [
+              "signed"
+            ],
+            "headers": {
+              "Subject": "Bug#601455: Steps towards a patch to document disabling a daemon upon installation",
+              "From": "Sean Whitton <spwhitton@spwhitton.name>",
+              "To": "601455@bugs.debian.org",
+              "Cc": "debian-devel@lists.debian.org",
+              "Reply-To": "Sean Whitton <spwhitton@spwhitton.name>, 601455@bugs.debian.org",
+              "Date": "Wed, 13 Sep 2017 10:40:47 -0700"
+            },
+            "body": [
+              {
+                "id": 1,
+                "content-type": "multipart/signed",
+                "content": [
+                  {
+                    "id": 2,
+                    "content-type": "text/plain",
+                    "content": "control: block 601455 by 857452\n\nOn Mon, Sep 11 2017, Ian Jackson wrote:\n\n> This should also be fixed with a new update-rc.d rune.\n\nThank you, Ian and Felipe, for your feedback.\n\nI think the right thing is to wait on #857452.\n\n-- \nSean Whitton\n"
+                  },
+                  {
+                    "id": 3,
+                    "content-type": "application/pgp-signature",
+                    "filename": "signature.asc",
+                    "content-length": 832
+                  }
+                ]
+              }
+            ]
+          },
+          []
+        ],
+        [
+          {
+            "id": "handler.s.B601455.150532489815922.transcript@bugs.debian.org",
+            "match": false,
+            "excluded": false,
+            "filename": [
+              "/home/bremner/Maildir/tethera/new/1505324862.H799240P2547.fethera.tethera.net"
+            ],
+            "timestamp": 1505325065,
+            "date_relative": "September 13",
+            "tags": [
+              "unread"
+            ],
+            "headers": {
+              "Subject": "Processed: Re: Steps towards a patch to document disabling a daemon upon installation",
+              "From": "owner@bugs.debian.org (Debian Bug Tracking System)",
+              "To": "Sean Whitton <spwhitton@spwhitton.name>",
+              "Cc": "debian-policy@lists.debian.org, pkg-systemd-maintainers@lists.alioth.debian.org",
+              "Date": "Wed, 13 Sep 2017 17:51:05 +0000"
+            },
+            "body": [
+              {
+                "id": 1,
+                "content-type": "text/plain",
+                "content-disposition": "inline",
+                "content": "Processing control commands:\n\n> block 601455 by 857452\nBug #601455 [debian-policy] Standardize how to disable an init script\nBug #522163 [debian-policy] standard for disabling daemons in /etc/default\nBug #661496 [debian-policy] Standardize how to disable an init script\n601455 was not blocked by any bugs.\n601455 was not blocking any bugs.\nAdded blocking bug(s) of 601455: 857452\n522163 was not blocked by any bugs.\n522163 was not blocking any bugs.\nAdded blocking bug(s) of 522163: 857452\n661496 was not blocked by any bugs.\n661496 was not blocking any bugs.\nAdded blocking bug(s) of 661496: 857452\n\n-- \n522163: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=522163\n601455: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=601455\n661496: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=661496\nDebian Bug Tracking System\nContact owner@bugs.debian.org with problems\n\n"
+              }
+            ]
+          },
+          []
+        ],
+        [
+          {
+            "id": "20170914190335.flyi6434gedo3vkz@cloud",
+            "match": false,
+            "excluded": false,
+            "filename": [
+              "/home/bremner/Maildir/tethera/new/1505416300.H973951P10371.fethera.tethera.net"
+            ],
+            "timestamp": 1505415815,
+            "date_relative": "September 14",
+            "tags": [
+              "unread"
+            ],
+            "headers": {
+              "Subject": "Bug#601455: Steps towards a patch to document disabling a daemon upon installation",
+              "From": "Josh Triplett <josh@joshtriplett.org>",
+              "To": "601455@bugs.debian.org",
+              "Reply-To": "Josh Triplett <josh@joshtriplett.org>, 601455@bugs.debian.org",
+              "Date": "Thu, 14 Sep 2017 12:03:35 -0700"
+            },
+            "body": [
+              {
+                "id": 1,
+                "content-type": "text/plain",
+                "content-disposition": "inline",
+                "content": "On Mon, 11 Sep 2017 14:41:12 +0100 Ian Jackson <ijackson@chiark.greenend.org.uk> wrote:\n> Sean Whitton writes (\"Steps towards a patch to document disabling a daemon upon installation\"):\n> > [draft policy text]\n> > > +The default behaviour is to enable autostarting your package's daemon.\n> > > +If the daemon should not be autostarted unless the local administrator\n> > > +has explicitly requested this, use instead add to your ``postinst``\n> > > +script\n> > > +\n> > > +::\n> > > +\n> > > +    update-rc.d package defaults\n> > > +    update-rc.d package disable\n> \n> This has a bug: after the first rune, but before this second, starting\n> the daemon is enabled.  (This is a regression compared to the previous\n> approach.)\n> \n> To make this work correctly, I think we need a new update-rc.d\n> mechanism which provides, in one go, the equivalent of\n>   update-rc.d DAEMON defaults && update-rc.d DAEMON disable\n> \n> Something like\n>   update-rc.d DAEMON add-disabled\n> maybe.\n\nI'd agree with this as a starting point, for setting a daemon-specific\ndefault. However, I also think we need a system-wide policy mechanism to\nallow the sysadmin to say \"start things by default\" or \"don't start\nthings by default\". Similar to systemd's \"preset\" mechanism, and ideally\nusing that under systemd, but providing the same level of control for\nnon-systemd init systems.\n\n> > > +An older practice, which should not be used, was to include a line\n> > > +like ``DISABLED=yes`` in the package's ``/etc/default`` file.  The\n> > > +package's init script would not start the service until the local\n> > > +system administrator changed this to ``DISABLED=no``, or similar.\n> ...\n> > 1. Is the 'should not' for the /etc/default practice too strong?  I\n> >    don't know an efficient way to find out how many packages this would\n> >    make buggy.  But given that we have very strong reasons against the\n> >    old practice, we might want to use a 'should not' regardless.\n> \n> On sysvinit systems, using update-rc.d disable/defaults are rather\n> more awkward:\n> \n>  * Enabling and disabling cannot, in practice, be conveniently made\n>    without using the update-rc.d tool.\n\nWhy is this an issue? We have update-rc.d to do this. \n\n>  * Enabling and disabling generates a tremendous amount of noise in\n>    /etc (especially visible when using etckeeper).\n\nThis seems like an artifact of sysvinit's choice of storage format for\nrunlevel configuration. (And I never found that noise particularly\nexcessive in etckeeper; it's a handful of symlink deletions/creations.)\n\n> > 2. Do we need to include any text saying *why* the /etc/default practice\n> >    is a bad idea?  I couldn't come up with a succinct way to state it.\n> >    In general, I think we can err on the side of not including the text,\n> >    since we have policy bugs that document the reasons.\n> \n> How about this text:\n> \n>   Setting a value in /etc/default/PACKAGE is nowadays troublesome\n>   because supporting that pattern is very hard due to inflexibility in\n>   systemd, which is usually the default init system.\n> \n> This also makes it clear that this pattern is perfectly fine if for\n> any reason the package does not support systemd.\n\nWhich (among many other reasons) is precisely why we shouldn't use this\ntext, because many people have been very reasonably arguing for the\nelimination of /etc/default and *especially* mechanisms like\n\"DISABLED=true\" in it for longer than systemd has existed.\n\n/etc/default is Debian-specific, and things like DISABLED=true break the\nability to *manually* start services.  They also make it difficult to\nprogrammatically configure services, such as by dropping in a\nconfiguration .d file from a configuration package.\n\n"
+              }
+            ]
+          },
+          []
+        ]
+      ]
+    ]
+  ]
+]
