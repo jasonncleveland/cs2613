@@ -3,6 +3,7 @@ const roadGraph = village.roadGraph;
 const VillageState = village.VillageState;
 const runRobot = village.runRobot;
 const randomRobot = village.randomRobot;
+const routeRobot = village.routeRobot;
 
 describe("Village tests", function () {
     it("check adjacent to Alice's hous", function () {
@@ -74,6 +75,13 @@ describe("runRobot", function () {
     it("randomRobot", function () {
         console.log = jasmine.createSpy("log");
         runRobot(VillageState.random(), randomRobot);
+
+        expect(console.log).toHaveBeenCalledWith(jasmine.stringMatching(/^Done/));
+    });
+
+    it("routeRobot", function () {
+        console.log = jasmine.createSpy("log");
+        runRobot(VillageState.random(), routeRobot, []);
 
         expect(console.log).toHaveBeenCalledWith(jasmine.stringMatching(/^Done/));
     });

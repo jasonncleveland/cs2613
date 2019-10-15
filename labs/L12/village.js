@@ -8,6 +8,22 @@ const roads = [
     "Marketplace-Town Hall",        "Shop-Town Hall"
 ];
 
+const mailRoute = [
+    "Alice's House",
+    "Cabin",
+    "Alice's House",
+    "Bob's House",
+    "Town Hall",
+    "Daria's House",
+    "Earnie's House",
+    "Grete's House",
+    "Shop",
+    "Grete's House",
+    "Farm",
+    "Marketplace",
+    "Post Office"
+];
+
 function buildGraph(edges) {
     let graph = Object.create(null);
     function addEdge(from, to) {
@@ -83,7 +99,15 @@ VillageState.random = function(parcelCount = 5) {
     return new VillageState("Post Office", parcels);
 };
 
+function routeRobot(state, memory) {
+    if (memory.length == 0) {
+        memory = mailRoute;
+    }
+    return { direction: memory[0], memory: memory.slice(1) };
+}
+
 exports.roadGraph = roadGraph;
 exports.VillageState = VillageState;
 exports.runRobot = runRobot;
 exports.randomRobot = randomRobot;
+exports.routeRobot = routeRobot;
