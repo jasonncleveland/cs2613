@@ -1,6 +1,8 @@
 const village = require("../village");
 const roadGraph = village.roadGraph;
 const VillageState = village.VillageState;
+const runRobot = village.runRobot;
+const randomRobot = village.randomRobot;
 
 describe("Village tests", function () {
     it("check adjacent to Alice's hous", function () {
@@ -57,5 +59,22 @@ describe("invalid parcel tests", function () {
 
     it("parcel can't be delivered", function () {
         expect(next.parcels).toEqual([{ place: "Bob's House", address: "Alice's House" }]);
+    });
+});
+
+describe("runRobot", function () {
+    it("no parcels", function () {
+        console.log = jasmine.createSpy("log");
+        let noParcels = new VillageState("Post Office", []);
+        runRobot(noParcels);
+
+        expect(console.log).toHaveBeenCalledWith("Done in 0 turns");
+    });
+
+    it("randomRobot", function () {
+        console.log = jasmine.createSpy("log");
+        runRobot(VillageState.random(), randomRobot);
+
+        expect(console.log).toHaveBeenCalledWith(jasmine.stringMatching(/^Done/));
     });
 });
