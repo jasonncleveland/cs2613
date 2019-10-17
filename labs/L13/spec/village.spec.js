@@ -46,6 +46,23 @@ describe("VillageState",
                 expect(first.move("Mars")).toBe(first);
             });
 
+        it("toString first",
+            function () {
+                expect(first.toString()).toEqual(
+                    [
+                        "---------",
+                        "| |2| |c|",
+                        "---------",
+                        "|f|m|a| |",
+                        "---------",
+                        "|g|s|t|b|",
+                        "---------",
+                        "|e|d| | |",
+                        "---------"
+                    ].join("\n") + "\n"
+                );
+            });
+
     });
 
 

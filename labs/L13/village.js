@@ -8,6 +8,13 @@ const roads = [
     "Marketplace-Town Hall", "Shop-Town Hall"
 ];
 
+const villageMap = [
+    [ null, "Post Office", null, "Cabin" ],
+    [ "Farm", "Market", "Alice's House", null ],
+    [ "Grete's House", "Shop", "Town Hall", "Bob's House" ],
+    [ "Ernie's House", "Daria's House", null, null ]
+];
+
 function buildGraph(edges) {
     let graph = Object.create(null);
     function addEdge(from, to) {
@@ -41,6 +48,28 @@ class VillageState {
             }).filter(p => p.place != p.address);
             return new VillageState(destination, parcels);
         }
+    }
+
+    toString() {
+        let out = "---------\n";
+        for (let row = 0; row < villageMap.length; row++) {
+            out += "|";
+            for (let col = 0; col < villageMap[row].length; col++) {
+                // your code goes here
+                if (villageMap[row][col] == null) {
+                    out += " ";
+                } else {
+                    if (this.place === villageMap[row][col]) {
+                        out += this.parcels.length;
+                    } else {
+                        out += villageMap[row][col].toLowerCase()[0];
+                    }
+                }
+                out += "|";
+            }
+            out += "\n---------\n";
+        }
+        return out;
     }
 }
 
@@ -96,6 +125,7 @@ function routeRobot(state, memory) {
 }
 
 exports.roadGraph = roadGraph;
+exports.villageMap = villageMap;
 exports.VillageState = VillageState;
 exports.runRobot = runRobot;
 exports.randomRobot = randomRobot;
