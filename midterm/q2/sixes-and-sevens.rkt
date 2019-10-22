@@ -1,14 +1,13 @@
 #lang racket
-(provide sixes-and-sevens)
 
 (define (sixes-and-sevens lst)
   (define (helper lst divisible)
     (cond
       [(empty? lst) divisible]
-      [(= 0 (modulo (first lst) 6)) (helper (rest lst) (append divisible (list (first lst))))]
-      [(= 0 (modulo (first lst) 7)) (helper (rest lst) (append divisible (list (first lst))))]
-      [else (helper (rest lst) divisible)]))
-  (helper lst '()))
+      [(= 0 (modulo (first lst) 6)) (helper (rest lst) divisible)]
+      [(= 0 (modulo (first lst) 7)) (helper (rest lst) divisible)]
+      [else (helper (rest lst) (remove (first lst) divisible))]))
+  (helper lst lst))
 
 (module+ test
   (require rackunit)
