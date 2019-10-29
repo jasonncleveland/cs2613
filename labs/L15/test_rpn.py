@@ -85,3 +85,15 @@ def test_list_combo():
 def test_list_quit():
     ops = "clear 3 4 * print 2 + quit print".split()
     assert process_list(ops) == [12]
+
+def test_a():
+    ops = "15 7 1 1 + - / 3 * 2 1 1 + + - print quit".split()
+    assert process_list(ops) == [5]
+
+def test_b():
+    ops = "17 3 2 * print dup dup pop + 3 / print swap - 13 + 2 ^ print quit".split()
+    assert process_list(ops) == [6, 4, 0]
+
+def test_c():
+    ops = "2 128 ^ 3 / -2 * print quit".split()
+    assert process_list(ops) == [-226854911280625642308916404954512140970]

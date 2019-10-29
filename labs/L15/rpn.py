@@ -5,7 +5,7 @@ import sys
 stack = []
 
 def process(line):
-    if line in ['+', '-', '*', '/', 'swap']:
+    if line in ['+', '-', '*', '/', '^', 'swap']:
         b = stack.pop()
         a = stack.pop()
 
@@ -17,6 +17,8 @@ def process(line):
         stack.append(a * b)
     elif line == '/':
         stack.append(a // b)
+    elif line == '^':
+        stack.append(a ** b)
     elif line == 'clear':
         stack.clear()
     elif line == 'dup':
