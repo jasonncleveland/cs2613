@@ -38,3 +38,24 @@ def test_clear():
     process("2")
     process("clear")
     assert stack == []
+
+def test_dup():
+    process("clear")
+    process("4")
+    process("2")
+    process("dup")
+    assert stack == [4, 2, 2]
+
+def test_pop():
+    process("clear")
+    process("4")
+    process("2")
+    process("pop")
+    assert stack == [4]
+
+def test_swap():
+    process("clear")
+    process("4")
+    process("2")
+    process("swap")
+    assert stack == [2, 4]
