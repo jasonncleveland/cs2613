@@ -17,5 +17,7 @@ def process(line):
         stack.append(a * b)
     elif line == '/':
         stack.append(a // b)
+    elif line == 'clear':
+        stack.clear()
     else:
         stack.append(int(line))
