@@ -42,3 +42,13 @@ def process_list(lines):
         if result is not None:
             out.append(result)
     return out        
+
+if __name__ == '__main__':
+    ops = []
+    for line in sys.stdin:
+        line = line.strip()
+        ops.append(line)
+    
+    out = process_list(ops)
+    for line in out:
+        print(line)
