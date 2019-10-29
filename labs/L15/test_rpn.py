@@ -1,4 +1,4 @@
-from rpn import process, stack
+from rpn import process, process_list, stack
 
 def test_push():
     process("1")
@@ -69,3 +69,19 @@ def test_print():
     assert retv == 4
     assert otherv == None
     assert stack == [7]
+
+def test_list_plus():
+    ops = "clear 3 4 + print".split()
+    assert process_list(ops) == [7]
+    
+def test_list_mult():
+    ops = "clear 3 4 *  print".split()
+    assert process_list(ops) == [12]
+
+def test_list_combo():
+    ops = "clear 3 4 * print 2 + print".split()
+    assert process_list(ops) == [12, 14]
+    
+def test_list_quit():
+    ops = "clear 3 4 * print 2 + quit print".split()
+    assert process_list(ops) == [12]

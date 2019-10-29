@@ -30,3 +30,13 @@ def process(line):
         return int(stack[-1])
     else:
         stack.append(int(line))
+
+def process_list(lines):
+    out = []
+    for line in lines:
+        if line == 'quit':
+            return out
+        result = process(line)
+        if result is not None:
+            out.append(result)
+    return out        
