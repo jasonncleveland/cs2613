@@ -26,5 +26,7 @@ def process(line):
     elif line == 'swap':
         stack.append(b)
         stack.append(a)
+    elif line == 'print':
+        return int(stack[-1])
     else:
         stack.append(int(line))

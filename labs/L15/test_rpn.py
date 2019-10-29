@@ -59,3 +59,13 @@ def test_swap():
     process("2")
     process("swap")
     assert stack == [2, 4]
+
+def test_print():
+    process("clear")
+    process("3")
+    process("4")
+    retv = process("print")
+    otherv = process("+")
+    assert retv == 4
+    assert otherv == None
+    assert stack == [7]
