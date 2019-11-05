@@ -1,4 +1,4 @@
-from parse_csv import split_csv, strip_quotes
+from parse_csv import split_csv, strip_quotes, split_row_3
 
 test_string_1 = """OPEID,INSTNM,TUITIONFEE_OUT
 02503400,Amridge University,6900
@@ -31,6 +31,27 @@ test_string_2 = '''OPEID,INSTNM,TUITIONFEE_OUT
 00101800,"George C Wallace State Community College-Dothan",7710
 '''
 
+test_string_3 = '''OPEID,INSTNM,TUITIONFEE_OUT
+02503400,"Amridge University",6900
+00100700,"Central Alabama Community College",7770
+01218200,"Chattahoochee Valley Community College",7830
+00101500,"Enterprise State Community College",7770
+00106000,"James H Faulkner State Community College",7770
+00101700,"Gadsden State Community College",5976
+00101800,"George C Wallace State Community College, Dothan",7710
+'''
+
+table2 = [
+    ['OPEID', 'INSTNM', 'TUITIONFEE_OUT'],
+    ['02503400', 'Amridge University', '6900'],
+    ['00100700', 'Central Alabama Community College', '7770'],
+    ['01218200', 'Chattahoochee Valley Community College', '7830'],
+    ['00101500', 'Enterprise State Community College', '7770'],
+    ['00106000', 'James H Faulkner State Community College', '7770'],
+    ['00101700', 'Gadsden State Community College', '5976'],
+    ['00101800', 'George C Wallace State Community College, Dothan', '7710']
+]
+
 def test_split_1():
     assert split_csv(test_string_1) == table1
 
@@ -40,3 +61,10 @@ def test_strip_quotes():
 
 def test_split_2():
     assert split_csv(test_string_2) == table1
+
+def test_split_row_3():
+    assert split_row_3('00101800,"George C Wallace State Community College, Dothan",7710') == ['00101800', 'George C Wallace State Community College, Dothan', '7710']
+
+def test_split_3():
+    '''Check handling of quoted commas'''
+    assert split_csv(test_string_3) == table2

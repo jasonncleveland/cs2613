@@ -9,9 +9,21 @@ def strip_quotes(string):
         return None
 
 def split_csv(string):
-    output = []
-    lines = string.splitlines()
-    for line in lines:
-        strip_quotes(line)
-        output.append([strip_quotes(element) for element in line.split(',')])
-    return output
+    return [split_row_3(line) for line in string.splitlines()]
+
+def split_row_3(string):
+    split_regex = re.compile(
+        r'''^   # start
+        ("[^"]*"|[^,]+)  # first column
+        ,
+        ("[^"]*"|[^,]+)  # second column
+        ,
+        ("[^"]*"|[^,]+)  # third column
+        $''',
+        re.VERBOSE
+    )
+    search = split_regex.search(string)
+    if search:
+        return [strip_quotes(col) for col in search.groups()]
+    else:
+        return None
