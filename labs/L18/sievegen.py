@@ -14,3 +14,6 @@ def sieve_with(candidates, lst):
 
 def sieve(n):
     return sieve_with(range(2, ceil(sqrt(n)) + 1), range(2, n))
+
+if __name__ == '__main__':
+    primes = [x for x in sieve(500000)]
