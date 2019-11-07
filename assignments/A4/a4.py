@@ -1,9 +1,6 @@
 def header_map(row):
     """Maps the index of a row column to its value"""
-    headers = {}
-    for i, label in enumerate(row):
-        headers[label] = i
-    return headers
+    return {label: i for i, label in enumerate(row)}
 
 def select(table, columns):
     """Filter table data to only provided columns"""
@@ -15,10 +12,7 @@ def select(table, columns):
 
 def row2dict(headers, row):
     """Create a dictionary from a row and provided headers"""
-    converted = {}
-    for key in headers.keys():
-        converted[key] = row[headers[key]]
-    return converted
+    return {key: row[headers[key]] for key in headers.keys()}
 
 def compare_values(left, right, op):
     """Evaluate the left and right parameters according to the operator"""
