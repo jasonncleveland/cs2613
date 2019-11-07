@@ -1,4 +1,4 @@
-from a4 import header_map, select, row2dict
+from a4 import header_map, select, row2dict, check_row
 from read_csv import read_csv
 
 table = read_csv('test1.csv')
@@ -18,3 +18,11 @@ def test_select_1():
 def test_row2dict():
     hmap = header_map(table[0])
     assert row2dict(hmap, table[1]) == {'name': 'Bob', 'age': '5', 'eye colour': 'blue'}
+
+def test_check_row():
+    row = {'name': 'Bob', 'age': '5', 'eye colour': 'blue'}
+    assert check_row(row, ('age', '==', 5))
+    assert not check_row(row, ('eye colour', '==', 5))
+    assert check_row(row, ('eye colour', '==', 'blue'))
+    assert check_row(row, ('age', '>=', 4))
+    assert check_row(row, ('age', '<=', 1000))

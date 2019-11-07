@@ -20,3 +20,29 @@ def row2dict(headers, row):
         converted[key] = row[headers[key]]
     return converted
 
+def compare_values(left, right, op):
+    # Attempt to convert both sides to an int if either is an int
+    if isinstance(left, int) or isinstance(right, int):
+        try:
+            left = int(left)
+            right = int(right)
+        except ValueError:
+            return False
+    if op == '==':
+        return left == right
+    elif op == '!=':
+        return left != right
+    elif op == '<':
+        return left < right
+    elif op == '>':
+        return left > right
+    elif op == '<=':
+        return left <= right
+    elif op == '>=':
+        return left >= right
+
+def check_row(row, parts):
+    left = row[parts[0]] if parts[0] in row else parts[0]
+    right = row[parts[2]] if parts[2] in row else parts[2]
+    op = parts[1]
+    return compare_values(left, right, op)
