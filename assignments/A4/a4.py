@@ -22,13 +22,13 @@ def row2dict(headers, row):
 
 def compare_values(left, right, op):
     """Evaluate the left and right parameters according to the operator"""
-    # Attempt to convert both sides to an int if either is an int
-    if isinstance(left, int) or isinstance(right, int):
-        try:
-            left = int(left)
-            right = int(right)
-        except ValueError:
-            return False
+    # Attempt to convert both sides to an int
+    try:
+        _ = int(left) + int(right)  # Only proceed if both can convert to int
+        left = int(left)
+        right = int(right)
+    except ValueError:
+        pass
     if op == '==':
         return left == right
     elif op == '!=':
@@ -54,3 +54,12 @@ def check_row(row, condition):
         left = row[condition[0]] if condition[0] in row else condition[0]
         right = row[condition[2]] if condition[2] in row else condition[2]
         return compare_values(left, right, op)
+
+def filter_table(table, condition):
+    """Return rows that satisfy the given condition"""
+    filtered_data = [table[0]]
+    rows = [row2dict(header_map(table[0]), row) for row in table[1:]]
+    for i, row in enumerate(rows, 1):
+        if check_row(row, condition):
+            filtered_data.append(table[i])
+    return filtered_data
