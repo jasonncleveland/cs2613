@@ -26,3 +26,8 @@ def test_check_row():
     assert check_row(row, ('eye colour', '==', 'blue'))
     assert check_row(row, ('age', '>=', 4))
     assert check_row(row, ('age', '<=', 1000))
+
+def test_check_row_logical():
+    row = {'name': 'Bob', 'age': '5', 'eye colour': 'blue'}
+    assert check_row(row, (('age', '==', 5), 'OR', ('eye colour', '==', 5)))
+    assert not check_row(row, (('age', '==', 5), 'AND', ('eye colour', '==', 5)))

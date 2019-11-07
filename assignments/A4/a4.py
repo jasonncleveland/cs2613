@@ -21,6 +21,7 @@ def row2dict(headers, row):
     return converted
 
 def compare_values(left, right, op):
+    """Evaluate the left and right parameters according to the operator"""
     # Attempt to convert both sides to an int if either is an int
     if isinstance(left, int) or isinstance(right, int):
         try:
@@ -41,8 +42,15 @@ def compare_values(left, right, op):
     elif op == '>=':
         return left >= right
 
-def check_row(row, parts):
-    left = row[parts[0]] if parts[0] in row else parts[0]
-    right = row[parts[2]] if parts[2] in row else parts[2]
-    op = parts[1]
-    return compare_values(left, right, op)
+def check_row(row, condition):
+    """Evaluate whether a row satisfies the given conditional"""
+    op = condition[1]
+    if op in ['AND', 'OR']:
+        if op == 'AND':
+            return check_row(row, condition[0]) and check_row(row, condition[2])
+        elif op == 'OR':
+            return check_row(row, condition[0]) or check_row(row, condition[2])
+    else:
+        left = row[condition[0]] if condition[0] in row else condition[0]
+        right = row[condition[2]] if condition[2] in row else condition[2]
+        return compare_values(left, right, op)
