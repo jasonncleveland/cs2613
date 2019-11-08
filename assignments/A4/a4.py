@@ -7,7 +7,7 @@ def select(table, columns):
     headers = header_map(table[0])
     filtered_data = []
     for row in table:
-        filtered_data.append([row[headers[col]] for col in columns])
+        filtered_data.append([row[headers[col]] for col in headers if col in columns])
     return filtered_data
 
 def row2dict(headers, row):
