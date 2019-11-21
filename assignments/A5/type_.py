@@ -6,3 +6,9 @@ class Type(Enum):
     IDENT = 2
     OPEN = 3
     TRANSFER = 4
+
+    def __eq__(self, other):
+        return (
+            self.name == other.name
+            and self.value == other.value
+        )
