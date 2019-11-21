@@ -12,3 +12,10 @@ class Type(Enum):
             self.name == other.name
             and self.value == other.value
         )
+
+    @staticmethod
+    def get_type_by_name(name):
+        for member in Type:
+            if member.name.lower() == name.lower():
+                return member
+        return Type.IDENT
