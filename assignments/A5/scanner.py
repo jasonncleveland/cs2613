@@ -26,8 +26,7 @@ class Scanner:
         """converts a string token into the appropriate Token object"""
         if self._currency_pattern.match(token):
             match = self._currency_pattern.match(token).group(1)
-            dollars = match.split('.')[0]
-            cents = match.split('.')[1] if len(match.split('.')) > 1 else '00'
+            dollars, cents = "{0:.2f}".format(float(match)).split('.')
             return Token(Type.CURRENCY, int("{0}{1}".format(dollars, cents)))
         elif self._word_pattern.match(token):
             match = self._word_pattern.match(token).group(1)

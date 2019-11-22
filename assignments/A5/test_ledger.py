@@ -1,9 +1,18 @@
+import pytest
+
 from ledger import ledger
 
 def test_empty():
+    '''check that no statements does nothing'''
     assert list(ledger("")) == []
 
+def test_invalid():
+    '''check that an invalid statement raises an exception'''
+    with pytest.raises(ValueError, match="&open"):
+        list(ledger("invalid &open balance"))
+
 def test_balance():
+    '''check that balance is 0 for accounts that have not been initialized'''
     assert list(
         ledger('''
             balance cash
@@ -11,6 +20,7 @@ def test_balance():
         ''')) == [("cash", 0), ("stock", 0)]
 
 def test_open():
+    '''check if an account is opened correctly'''
     assert list(
         ledger('''
             open cash 100
@@ -18,6 +28,7 @@ def test_open():
         ''')) == [("cash", 10000)]
 
 def test_transfer():
+    '''test transfering funds between ledger accounts'''
     assert list(
         ledger('''
             open cash 100
