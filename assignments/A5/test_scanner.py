@@ -1,3 +1,5 @@
+import pytest
+
 from scanner import Scanner
 from token_ import Token
 from type_ import Type
@@ -25,4 +27,17 @@ def test_scan_identifiers():
         Token(Type.IDENT, "cash"),
         Token(Type.IDENT, "end_of_the_world_fund")
     ]
-    
+
+def test_scan_currency():
+    scanner = Scanner("100 100.00 100.42 -123.45")
+    assert list(scanner) == [
+        Token(Type.CURRENCY, 10000),
+        Token(Type.CURRENCY, 10000),
+        Token(Type.CURRENCY, 10042),
+        Token(Type.CURRENCY, -12345)
+    ]
+
+def test_scan_bad():
+    scanner = Scanner("&crash")
+    with pytest.raises(ValueError, match="&crash"):
+        next(scanner)
